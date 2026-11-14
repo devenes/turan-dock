@@ -71,13 +71,6 @@ export const profile = {
       enabled: true,
     },
     {
-      id: "x",
-      label: "X (Twitter)",
-      url: "https://x.com/thedevenes",
-      icon: "x",
-      enabled: true,
-    },
-    {
       id: "instagram",
       label: "Instagram",
       url: "https://www.instagram.com/enes.ai/",
@@ -89,6 +82,13 @@ export const profile = {
       label: "Facebook",
       url: "https://www.facebook.com/profile.php?id=100087441315629",
       icon: "facebook",
+      enabled: true,
+    },
+    {
+      id: "x",
+      label: "X (Twitter)",
+      url: "https://x.com/thedevenes",
+      icon: "x",
       enabled: true,
     },
     {
