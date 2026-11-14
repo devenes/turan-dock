@@ -13,7 +13,7 @@
 export const profile = {
   name: "Enes Turan",
 
-  headline: "Platform Engineer at JumpCloud",
+  headline: "Software Engineer at JumpCloud",
 
   badges: [
     {
@@ -25,7 +25,7 @@ export const profile = {
   location: "Istanbul, Türkiye",
 
   description:
-    "Building resilient cloud infrastructure, developer platforms, and practical AI systems.",
+    "Building scalable software systems, cloud architecture, and practical AI solutions.",
 
   avatar: {
     src: "./assets/images/profile.webp",
@@ -33,9 +33,9 @@ export const profile = {
   },
 
   seo: {
-    title: "Enes Turan — Platform Engineer & Google Developer Expert",
+    title: "Enes Turan — Software Engineer & Google Developer Expert",
     description:
-      "Official personal profile and social links of Enes Turan — Platform Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.",
+      "Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.",
   },
 
   links: [
@@ -60,7 +60,7 @@ export const profile = {
       label: "X (Twitter)",
       url: "https://x.com/thedevenes",
       icon: "x",
-      description: "Thoughts on Cloud, Platform Engineering & AI",
+      description: "Thoughts on Cloud, Software Engineering & AI",
       enabled: true,
     },
     {
