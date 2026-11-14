@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="aurora" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="#070b16" stroke="url(#aurora)" stroke-width="3" />
+  <path d="M17 21h14v4.5h-9v5.2h7.8v4.3H22v5.5h9.4V45H17V21Zm18.2 0H50v4.5h-5.1V45h-4.9V25.5h-4.8V21Z" fill="#f8fafc" />
+</svg>

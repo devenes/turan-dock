@@ -1,0 +1,647 @@
+/* ==========================================================================
+   Midnight Aurora — Personal Brand Design System
+   Zero dependencies • System typography • WCAG 2.2 AA • Reduced-motion aware
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces & Background */
+  --bg-canvas: #060913;
+  --bg-card: rgba(13, 20, 38, 0.76);
+  --bg-card-hover: rgba(20, 31, 56, 0.9);
+  --bg-icon: rgba(255, 255, 255, 0.045);
+  --bg-icon-hover: rgba(56, 189, 248, 0.12);
+  --bg-badge: rgba(20, 184, 166, 0.11);
+
+  /* Borders (calibrated >= 3:1 non-text contrast against --bg-canvas) */
+  --border-card: #4d607d;
+  --border-card-hover: #38bdf8;
+  --border-icon: rgba(148, 163, 184, 0.22);
+  --border-badge: rgba(45, 212, 191, 0.44);
+
+  /* Typography colors (>= 4.5:1 AA contrast) */
+  --text-primary: #f8fafc;
+  --text-secondary: #dbe4f0;
+  --text-muted: #94a3b8;
+  --text-badge: #5eead4;
+
+  /* Accents & Focus */
+  --accent-teal: #2dd4bf;
+  --accent-sky: #38bdf8;
+  --accent-violet: #a78bfa;
+  --focus-ring: #5eead4;
+
+  /* Layout & Radii */
+  --container-max: 33rem;
+  --radius-card: 1rem;
+  --radius-icon: 0.75rem;
+  --radius-pill: 9999px;
+
+  /* System font stack */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Reset & Box Sizing (NOTE: root font-size intentionally left untouched
+   so <meta name="text-scale" content="scale"> and browser preferences scale) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Ambient Midnight Aurora Background
+   ========================================================================== */
+
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 14%, rgba(56, 189, 248, 0.12), transparent 52%),
+    radial-gradient(circle at 18% 8%, rgba(45, 212, 191, 0.09), transparent 44%),
+    radial-gradient(circle at 84% 86%, rgba(139, 92, 246, 0.11), transparent 48%),
+    var(--bg-canvas);
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(88px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.aurora-orb--teal {
+  width: 26rem;
+  height: 26rem;
+  top: -8rem;
+  left: -7rem;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.34) 0%, transparent 70%);
+}
+
+.aurora-orb--blue {
+  width: 30rem;
+  height: 30rem;
+  top: 4rem;
+  left: calc(50% - 15rem);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, transparent 70%);
+}
+
+.aurora-orb--violet {
+  width: 28rem;
+  height: 28rem;
+  bottom: -9rem;
+  right: -7rem;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, transparent 70%);
+}
+
+/* Local SVG noise texture for subtle OLED anti-banding tactile depth */
+.aurora-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Page Shell & Responsive Centered Container
+   ========================================================================== */
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-block: clamp(1.75rem, 4vh, 3rem) 1.5rem;
+  padding-inline: clamp(1.125rem, 4vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Profile Header & Avatar Ring
+   ========================================================================== */
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar-frame {
+  position: relative;
+  width: 7.25rem;
+  height: 7.25rem;
+  border-radius: 50%;
+  padding: 3px;
+  display: grid;
+  place-items: center;
+  margin-block-end: 1rem;
+  box-shadow:
+    0 14px 36px -10px rgba(2, 6, 23, 0.85),
+    0 0 32px -8px rgba(45, 212, 191, 0.25);
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--accent-teal),
+    var(--accent-sky),
+    var(--accent-violet)
+  );
+}
+
+.avatar-ring::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-teal),
+    var(--accent-sky),
+    var(--accent-violet),
+    var(--accent-sky),
+    var(--accent-teal)
+  );
+}
+
+.profile-avatar {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg-canvas);
+  background-color: #0f172a;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.18;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.profile-headline {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  text-wrap: balance;
+}
+
+.profile-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block-start: 0.85rem;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 1.875rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-badge);
+  border: 1px solid var(--border-badge);
+  color: var(--text-badge);
+  font-size: 0.84375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+
+.badge-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+
+.profile-location {
+  margin: 0.7rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.location-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.profile-description {
+  margin: 0.85rem 0 0;
+  max-inline-size: 42ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Social & Custom Link Buttons
+   ========================================================================== */
+
+.links-nav {
+  width: 100%;
+}
+
+.links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6875rem;
+}
+
+.links-item {
+  margin: 0;
+  padding: 0;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  width: 100%;
+  min-block-size: 3.9375rem;
+  padding: 0.75rem 1.05rem;
+  border-radius: var(--radius-card);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 4px 16px -4px rgba(2, 6, 23, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.link-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-icon);
+  background-color: var(--bg-icon);
+  border: 1px solid var(--border-icon);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.link-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  text-align: start;
+}
+
+.link-label {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+
+.link-description {
+  font-size: 0.84375rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  overflow-wrap: break-word;
+}
+
+.link-arrow-wrap {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.link-arrow {
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+  opacity: 0.78;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover & Active States (color/shadow feedback always active) */
+.link-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  box-shadow:
+    0 12px 28px -10px rgba(14, 165, 233, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.link-card:hover .link-icon-wrap {
+  background-color: var(--bg-icon-hover);
+  border-color: rgba(56, 189, 248, 0.36);
+}
+
+.link-card:hover .link-arrow {
+  opacity: 1;
+}
+
+/* Keyboard Focus Indicators (WCAG 2.4.7 & 1.4.11 >= 3:1 contrast) */
+:where(a:any-link, button):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.link-card:focus-visible {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+}
+
+.noscript-notice {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-card);
+  background-color: var(--bg-card);
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  padding-block-start: 0.75rem;
+  text-align: center;
+  font-size: 0.84375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 0.65rem;
+}
+
+.footer-sep {
+  opacity: 0.45;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-decoration-color: rgba(148, 163, 184, 0.5);
+  text-underline-offset: 0.22em;
+  transition:
+    color 0.18s ease,
+    text-decoration-color 0.18s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-teal);
+  text-decoration-color: var(--accent-teal);
+}
+
+/* ==========================================================================
+   Motion & Subtle Interactions (Opt-in via prefers-reduced-motion)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. Slow ambient gradient orb drift */
+  .aurora-orb--teal {
+    animation: orb-drift-teal 24s ease-in-out infinite alternate;
+  }
+
+  .aurora-orb--blue {
+    animation: orb-drift-blue 28s ease-in-out infinite alternate;
+  }
+
+  .aurora-orb--violet {
+    animation: orb-drift-violet 26s ease-in-out infinite alternate;
+  }
+
+  /* 2. Profile header upward fade-in */
+  .profile-header {
+    animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* 3. Subtle rotating gradient ring around avatar */
+  .avatar-ring::before {
+    animation: ring-spin 16s linear infinite;
+  }
+
+  /* Staggered social link card entrance (sibling-index() with --sibling-index fallback) */
+  .links-item {
+    --stagger-step: 0.055s;
+    animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.055s + var(--sibling-index, 1) * var(--stagger-step));
+    animation-delay: calc(0.055s + sibling-index() * var(--stagger-step));
+  }
+
+  .site-footer {
+    animation: fade-in 0.7s ease 0.35s both;
+  }
+
+  /* 4 & 5. Button upward lift & horizontal arrow shift on hover/focus */
+  .link-card {
+    transition:
+      transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .link-arrow {
+    transition:
+      transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.2s ease;
+  }
+
+  .link-card:hover,
+  .link-card:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .link-card:active {
+    transform: translateY(0);
+  }
+
+  .link-card:hover .link-arrow,
+  .link-card:focus-visible .link-arrow {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes orb-drift-teal {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2.5rem, 2rem, 0) scale(1.08); }
+}
+
+@keyframes orb-drift-blue {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-2rem, 1.75rem, 0) scale(1.05); }
+}
+
+@keyframes orb-drift-violet {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-2.5rem, -2rem, 0) scale(1.07); }
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ==========================================================================
+   Responsive Adjustments (Mobile-first)
+   ========================================================================== */
+
+@media (max-width: 25rem) {
+  .avatar-frame {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .link-card {
+    padding: 0.75rem 0.875rem;
+    gap: 0.75rem;
+  }
+
+  .link-icon-wrap {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .link-card {
+    min-block-size: 4.25rem;
+  }
+
+  .footer-link {
+    display: inline-block;
+    padding-block: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   Windows High Contrast / Forced Colors Mode Support
+   ========================================================================== */
+
+@media (forced-colors: active) {
+  .aurora-bg,
+  .avatar-ring {
+    display: none;
+  }
+
+  .profile-avatar {
+    border: 2px solid CanvasText;
+  }
+
+  .badge-pill {
+    border: 1px solid CanvasText;
+  }
+
+  .link-card {
+    border: 1px solid LinkText;
+  }
+
+  .link-card:hover,
+  .link-card:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
