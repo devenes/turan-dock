@@ -28,8 +28,7 @@ export const profile = {
 
   location: "Istanbul, Türkiye",
 
-  description:
-    "Building scalable software systems, cloud architecture, and practical AI solutions.",
+  description: "",
 
   avatar: {
     src: "./assets/images/profile.webp",
@@ -69,15 +68,6 @@ export const profile = {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/devenes/",
       icon: "linkedin",
-      description: "Connect with me professionally",
-      enabled: true,
-    },
-    {
-      id: "github",
-      label: "GitHub",
-      url: "https://github.com/devenes",
-      icon: "github",
-      description: "Explore my open-source projects & code",
       enabled: true,
     },
     {
@@ -85,7 +75,6 @@ export const profile = {
       label: "X (Twitter)",
       url: "https://x.com/thedevenes",
       icon: "x",
-      description: "Thoughts on Cloud, Software Engineering & AI",
       enabled: true,
     },
     {
@@ -93,7 +82,6 @@ export const profile = {
       label: "Instagram",
       url: "https://www.instagram.com/enes.ai/",
       icon: "instagram",
-      description: "AI insights, community events & daily moments",
       enabled: true,
     },
     {
@@ -101,7 +89,13 @@ export const profile = {
       label: "Facebook",
       url: "https://www.facebook.com/profile.php?id=100087441315629",
       icon: "facebook",
-      description: "Personal updates & community highlights",
+      enabled: true,
+    },
+    {
+      id: "github",
+      label: "GitHub",
+      url: "https://github.com/devenes",
+      icon: "github",
       enabled: true,
     },
     {
@@ -109,7 +103,6 @@ export const profile = {
       label: "YouTube",
       url: "YOUR_YOUTUBE_URL",
       icon: "youtube",
-      description: "Tech talks, demos & deep dives",
       enabled: false,
     },
   ],

@@ -74,10 +74,10 @@
     ],
     "sameAs": [
       "https://www.linkedin.com/in/devenes/",
-      "https://github.com/devenes",
       "https://x.com/thedevenes",
       "https://www.instagram.com/enes.ai/",
-      "https://www.facebook.com/profile.php?id=100087441315629"
+      "https://www.facebook.com/profile.php?id=100087441315629",
+      "https://github.com/devenes"
     ]
   }
 }
@@ -121,8 +121,79 @@
 
         <p id="profile-location" class="profile-location"><img class="location-icon" src="./assets/icons/map-pin.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true"><span>Istanbul, Türkiye</span></p>
 
-        <p id="profile-description" class="profile-description">Building scalable software systems, cloud architecture, and practical AI solutions.</p>
+        <p id="profile-description" class="profile-description" hidden></p>
       </section>
+
+      <!-- Pre-rendered static links work with zero JavaScript and are hydrated dynamically -->
+      <nav class="links-nav" aria-label="Social and professional links">
+        <ul id="links-list" class="links-list">
+          <li class="links-item" style="--sibling-index: 1;">
+            <a class="link-card" href="https://www.linkedin.com/in/devenes/" target="_blank" rel="noopener noreferrer" data-link-id="linkedin">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/linkedin.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">LinkedIn</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 2;">
+            <a class="link-card" href="https://x.com/thedevenes" target="_blank" rel="noopener noreferrer" data-link-id="x">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/x.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">X (Twitter)</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 3;">
+            <a class="link-card" href="https://www.instagram.com/enes.ai/" target="_blank" rel="noopener noreferrer" data-link-id="instagram">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/instagram.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">Instagram</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 4;">
+            <a class="link-card" href="https://www.facebook.com/profile.php?id=100087441315629" target="_blank" rel="noopener noreferrer" data-link-id="facebook">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/facebook.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">Facebook</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 5;">
+            <a class="link-card" href="https://github.com/devenes" target="_blank" rel="noopener noreferrer" data-link-id="github">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/github.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">GitHub</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
       <!-- Interactive Quick Contact Actions (progressive enhancement; hidden when JS is disabled) -->
       <div id="quick-actions" class="quick-actions" role="group" aria-label="Quick contact actions" hidden>
@@ -158,82 +229,6 @@
           <span data-default-label="Copy Email" data-copied-label="Email Copied" data-failed-label="Copy Failed">Copy Email</span>
         </button>
       </div>
-
-      <!-- Pre-rendered static links work with zero JavaScript and are hydrated dynamically -->
-      <nav class="links-nav" aria-label="Social and professional links">
-        <ul id="links-list" class="links-list">
-          <li class="links-item" style="--sibling-index: 1;">
-            <a class="link-card" href="https://www.linkedin.com/in/devenes/" target="_blank" rel="noopener noreferrer" data-link-id="linkedin">
-              <span class="link-icon-wrap" aria-hidden="true">
-                <img class="link-icon" src="./assets/icons/linkedin.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
-              </span>
-              <span class="link-content">
-                <span class="link-label">LinkedIn</span>
-                <span class="link-description">Connect with me professionally</span>
-              </span>
-              <span class="link-arrow-wrap" aria-hidden="true">
-                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-          <li class="links-item" style="--sibling-index: 2;">
-            <a class="link-card" href="https://github.com/devenes" target="_blank" rel="noopener noreferrer" data-link-id="github">
-              <span class="link-icon-wrap" aria-hidden="true">
-                <img class="link-icon" src="./assets/icons/github.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
-              </span>
-              <span class="link-content">
-                <span class="link-label">GitHub</span>
-                <span class="link-description">Explore my open-source projects &amp; code</span>
-              </span>
-              <span class="link-arrow-wrap" aria-hidden="true">
-                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-          <li class="links-item" style="--sibling-index: 3;">
-            <a class="link-card" href="https://x.com/thedevenes" target="_blank" rel="noopener noreferrer" data-link-id="x">
-              <span class="link-icon-wrap" aria-hidden="true">
-                <img class="link-icon" src="./assets/icons/x.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
-              </span>
-              <span class="link-content">
-                <span class="link-label">X (Twitter)</span>
-                <span class="link-description">Thoughts on Cloud, Software Engineering &amp; AI</span>
-              </span>
-              <span class="link-arrow-wrap" aria-hidden="true">
-                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-          <li class="links-item" style="--sibling-index: 4;">
-            <a class="link-card" href="https://www.instagram.com/enes.ai/" target="_blank" rel="noopener noreferrer" data-link-id="instagram">
-              <span class="link-icon-wrap" aria-hidden="true">
-                <img class="link-icon" src="./assets/icons/instagram.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
-              </span>
-              <span class="link-content">
-                <span class="link-label">Instagram</span>
-                <span class="link-description">AI insights, community events &amp; daily moments</span>
-              </span>
-              <span class="link-arrow-wrap" aria-hidden="true">
-                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-          <li class="links-item" style="--sibling-index: 5;">
-            <a class="link-card" href="https://www.facebook.com/profile.php?id=100087441315629" target="_blank" rel="noopener noreferrer" data-link-id="facebook">
-              <span class="link-icon-wrap" aria-hidden="true">
-                <img class="link-icon" src="./assets/icons/facebook.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
-              </span>
-              <span class="link-content">
-                <span class="link-label">Facebook</span>
-                <span class="link-description">Personal updates &amp; community highlights</span>
-              </span>
-              <span class="link-arrow-wrap" aria-hidden="true">
-                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
     </main>
 
     <footer id="site-footer" class="site-footer">

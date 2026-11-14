@@ -2,8 +2,6 @@
 
 > Software Engineer at JumpCloud • Google Developer Expert — based in Istanbul, Türkiye.
 
-Building scalable software systems, cloud architecture, and practical AI solutions.
-
 ## Overview
 
 - **Name**: Enes Turan
@@ -15,11 +13,11 @@ Building scalable software systems, cloud architecture, and practical AI solutio
 
 ## Official Profiles & Social Links
 
-- [LinkedIn](https://www.linkedin.com/in/devenes/): Connect with me professionally
-- [GitHub](https://github.com/devenes): Explore my open-source projects & code
-- [X (Twitter)](https://x.com/thedevenes): Thoughts on Cloud, Software Engineering & AI
-- [Instagram](https://www.instagram.com/enes.ai/): AI insights, community events & daily moments
-- [Facebook](https://www.facebook.com/profile.php?id=100087441315629): Personal updates & community highlights
+- [LinkedIn](https://www.linkedin.com/in/devenes/)
+- [X (Twitter)](https://x.com/thedevenes)
+- [Instagram](https://www.instagram.com/enes.ai/)
+- [Facebook](https://www.facebook.com/profile.php?id=100087441315629)
+- [GitHub](https://github.com/devenes)
 
 ## Source Repository
 

@@ -303,6 +303,13 @@ ${badges}
         <p id="profile-description" class="profile-description"${description ? "" : " hidden"}>${escapeHtml(description)}</p>
       </section>
 
+      <!-- Pre-rendered static links work with zero JavaScript and are hydrated dynamically -->
+      <nav class="links-nav" aria-label="Social and professional links">
+        <ul id="links-list" class="links-list">
+${linksHtml}
+        </ul>
+      </nav>
+
       <!-- Interactive Quick Contact Actions (progressive enhancement; hidden when JS is disabled) -->
       <div id="quick-actions" class="quick-actions" role="group" aria-label="Quick contact actions" hidden>
         <button
@@ -337,13 +344,6 @@ ${badges}
           <span data-default-label="Copy Email" data-copied-label="Email Copied" data-failed-label="Copy Failed">Copy Email</span>
         </button>
       </div>
-
-      <!-- Pre-rendered static links work with zero JavaScript and are hydrated dynamically -->
-      <nav class="links-nav" aria-label="Social and professional links">
-        <ul id="links-list" class="links-list">
-${linksHtml}
-        </ul>
-      </nav>
     </main>
 
     <footer id="site-footer" class="site-footer"${footerParts.length ? "" : " hidden"}>
