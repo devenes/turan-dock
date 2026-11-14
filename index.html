@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="text-scale" content="scale">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cloud.umami.is; connect-src 'self' https://gateway.umami.is https://cloud.umami.is https://api-gateway.umami.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Enes Turan — Software Engineer &amp; Google Developer Expert</title>
@@ -85,6 +85,8 @@
 
   <link rel="stylesheet" href="./assets/css/style.css">
   <script type="module" src="./assets/js/main.js"></script>
+  <!-- Privacy-first, cookieless analytics (Umami Cloud) -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8eaa5053-0b42-46dd-b582-fd6fd47691db" data-domains="devenes.github.io"></script>
 </head>
 <body>
   <!-- Decorative Midnight Aurora ambient background -->
@@ -128,7 +130,7 @@
       <nav class="links-nav" aria-label="Social and professional links">
         <ul id="links-list" class="links-list">
           <li class="links-item" style="--sibling-index: 1;">
-            <a class="link-card" href="https://www.linkedin.com/in/devenes/" target="_blank" rel="noopener noreferrer" data-link-id="linkedin">
+            <a class="link-card" href="https://www.linkedin.com/in/devenes/" target="_blank" rel="noopener noreferrer" data-link-id="linkedin" data-umami-event="Card: LinkedIn">
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="./assets/icons/linkedin.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -141,7 +143,7 @@
             </a>
           </li>
           <li class="links-item" style="--sibling-index: 2;">
-            <a class="link-card" href="https://www.instagram.com/enes.ai/" target="_blank" rel="noopener noreferrer" data-link-id="instagram">
+            <a class="link-card" href="https://www.instagram.com/enes.ai/" target="_blank" rel="noopener noreferrer" data-link-id="instagram" data-umami-event="Card: Instagram">
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="./assets/icons/instagram.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -154,7 +156,7 @@
             </a>
           </li>
           <li class="links-item" style="--sibling-index: 3;">
-            <a class="link-card" href="https://www.facebook.com/profile.php?id=100087441315629" target="_blank" rel="noopener noreferrer" data-link-id="facebook">
+            <a class="link-card" href="https://www.facebook.com/profile.php?id=100087441315629" target="_blank" rel="noopener noreferrer" data-link-id="facebook" data-umami-event="Card: Facebook">
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="./assets/icons/facebook.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -167,7 +169,7 @@
             </a>
           </li>
           <li class="links-item" style="--sibling-index: 4;">
-            <a class="link-card" href="https://x.com/thedevenes" target="_blank" rel="noopener noreferrer" data-link-id="x">
+            <a class="link-card" href="https://x.com/thedevenes" target="_blank" rel="noopener noreferrer" data-link-id="x" data-umami-event="Card: X (Twitter)">
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="./assets/icons/x.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -180,7 +182,7 @@
             </a>
           </li>
           <li class="links-item" style="--sibling-index: 5;">
-            <a class="link-card" href="https://github.com/devenes" target="_blank" rel="noopener noreferrer" data-link-id="github">
+            <a class="link-card" href="https://github.com/devenes" target="_blank" rel="noopener noreferrer" data-link-id="github" data-umami-event="Card: GitHub">
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="./assets/icons/github.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -203,6 +205,7 @@
           class="action-pill"
           command="show-modal"
           commandfor="qr-dialog"
+          data-umami-event="Action: QR &amp; Share"
         >
           <img class="btn-icon" src="./assets/icons/qr-code.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <span>QR &amp; Share</span>
@@ -212,6 +215,7 @@
           type="button"
           id="save-vcard-btn"
           class="action-pill"
+          data-umami-event="Action: Save Contact"
         >
           <img class="btn-icon" src="./assets/icons/vcard.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <span>Save Contact</span>
@@ -223,6 +227,7 @@
           class="action-pill"
           command="--copy-email"
           commandfor="copy-email-btn"
+          data-umami-event="Action: Copy Email"
         >
           <img class="btn-icon btn-icon--default" src="./assets/icons/mail.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
@@ -232,7 +237,7 @@
     </main>
 
     <footer id="site-footer" class="site-footer">
-      <p class="footer-inner"><span>Designed &amp; built by Enes Turan</span><span class="footer-sep" aria-hidden="true">•</span><a class="footer-link" href="https://github.com/devenes/turan-dock" target="_blank" rel="noopener noreferrer">Open Source on GitHub</a></p>
+      <p class="footer-inner"><span>Designed &amp; built by Enes Turan</span><span class="footer-sep" aria-hidden="true">•</span><a class="footer-link" href="https://github.com/devenes/turan-dock" target="_blank" rel="noopener noreferrer" data-umami-event="Footer: Source Repo">Open Source on GitHub</a></p>
     </footer>
   </div>
 
@@ -271,6 +276,7 @@
             class="modal-btn modal-btn--primary"
             command="--copy"
             commandfor="share-url-source"
+            data-umami-event="Modal: Copy Link"
             autofocus
           >
             <img class="btn-icon btn-icon--default" src="./assets/icons/copy.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
@@ -284,6 +290,7 @@
           type="button"
           id="modal-native-share-btn"
           class="modal-btn modal-btn--secondary"
+          data-umami-event="Modal: Native Share"
           hidden
         >
           <img class="btn-icon" src="./assets/icons/share.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
@@ -294,6 +301,7 @@
           type="button"
           id="modal-download-qr-btn"
           class="modal-btn modal-btn--secondary"
+          data-umami-event="Modal: Save QR"
         >
           <img class="btn-icon btn-icon--default" src="./assets/icons/download.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
           <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">

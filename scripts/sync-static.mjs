@@ -173,11 +173,12 @@ function buildIndexHtml(config) {
   const linksHtml = enabledLinks
     .map((item, idx) => {
       const dataAttr = item.id ? ` data-link-id="${escapeHtml(item.id)}"` : "";
+      const umamiAttr = ` data-umami-event="${escapeHtml(`Card: ${item.label}`)}"`;
       const descHtml = item.description
         ? `\n                <span class="link-description">${escapeHtml(item.description)}</span>`
         : "";
       return `          <li class="links-item" style="--sibling-index: ${idx + 1};">
-            <a class="link-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer"${dataAttr}>
+            <a class="link-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer"${dataAttr}${umamiAttr}>
               <span class="link-icon-wrap" aria-hidden="true">
                 <img class="link-icon" src="${escapeHtml(item.iconPath)}" alt="" width="20" height="20" decoding="async" aria-hidden="true">
               </span>
@@ -205,9 +206,32 @@ function buildIndexHtml(config) {
   }
   if (footerRepoUrl) {
     footerParts.push(
-      `<a class="footer-link" href="${escapeHtml(footerRepoUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footerRepoLabel)}</a>`
+      `<a class="footer-link" href="${escapeHtml(footerRepoUrl)}" target="_blank" rel="noopener noreferrer" data-umami-event="Footer: Source Repo">${escapeHtml(footerRepoLabel)}</a>`
     );
   }
+
+  const umamiIdRaw =
+    typeof config?.analytics?.umamiWebsiteId === "string"
+      ? config.analytics.umamiWebsiteId.trim()
+      : "";
+  const umamiScriptUrl =
+    validateExternalUrl(config?.analytics?.umamiScriptUrl) ||
+    "https://cloud.umami.is/script.js";
+  const umamiEnabled =
+    config?.analytics?.enabled !== false &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
+      umamiIdRaw
+    );
+  const canonicalHost = new URL(canonicalUrl).hostname;
+  const umamiOrigin = new URL(umamiScriptUrl).origin;
+
+  const cspContent = umamiEnabled
+    ? `default-src 'self'; script-src 'self' ${umamiOrigin}; connect-src 'self' https://gateway.umami.is ${umamiOrigin} https://api-gateway.umami.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';`
+    : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';";
+
+  const umamiHeadScript = umamiEnabled
+    ? `\n  <!-- Privacy-first, cookieless analytics (Umami Cloud) -->\n  <script defer src="${escapeHtml(umamiScriptUrl)}" data-website-id="${escapeHtml(umamiIdRaw)}" data-domains="${escapeHtml(canonicalHost)}"></script>`
+    : "";
 
   const jsonLd = JSON.stringify(
     buildJsonLd(config, canonicalUrl, enabledLinks),
@@ -221,7 +245,7 @@ function buildIndexHtml(config) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="text-scale" content="scale">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';">
+  <meta http-equiv="Content-Security-Policy" content="${cspContent}">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>${escapeHtml(seoTitle)}</title>
@@ -259,7 +283,7 @@ ${jsonLd}
   </script>
 
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script type="module" src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>${umamiHeadScript}
 </head>
 <body>
   <!-- Decorative Midnight Aurora ambient background -->
@@ -318,6 +342,7 @@ ${linksHtml}
           class="action-pill"
           command="show-modal"
           commandfor="qr-dialog"
+          data-umami-event="Action: QR &amp; Share"
         >
           <img class="btn-icon" src="./assets/icons/qr-code.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <span>QR &amp; Share</span>
@@ -327,6 +352,7 @@ ${linksHtml}
           type="button"
           id="save-vcard-btn"
           class="action-pill"
+          data-umami-event="Action: Save Contact"
         >
           <img class="btn-icon" src="./assets/icons/vcard.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <span>Save Contact</span>
@@ -338,6 +364,7 @@ ${linksHtml}
           class="action-pill"
           command="--copy-email"
           commandfor="copy-email-btn"
+          data-umami-event="Action: Copy Email"
         >
           <img class="btn-icon btn-icon--default" src="./assets/icons/mail.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
           <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
@@ -386,6 +413,7 @@ ${linksHtml}
             class="modal-btn modal-btn--primary"
             command="--copy"
             commandfor="share-url-source"
+            data-umami-event="Modal: Copy Link"
             autofocus
           >
             <img class="btn-icon btn-icon--default" src="./assets/icons/copy.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
@@ -399,6 +427,7 @@ ${linksHtml}
           type="button"
           id="modal-native-share-btn"
           class="modal-btn modal-btn--secondary"
+          data-umami-event="Modal: Native Share"
           hidden
         >
           <img class="btn-icon" src="./assets/icons/share.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
@@ -409,6 +438,7 @@ ${linksHtml}
           type="button"
           id="modal-download-qr-btn"
           class="modal-btn modal-btn--secondary"
+          data-umami-event="Modal: Save QR"
         >
           <img class="btn-icon btn-icon--default" src="./assets/icons/download.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
           <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">

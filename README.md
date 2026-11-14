@@ -16,7 +16,7 @@ Designed as a fast, open-source personal brand hub for sharing professional cred
   - **Anti-Spam Email Copy**: Split `{ user, domain }` email configuration copied directly to clipboard with an accessible top-layer toast notification — zero raw `mailto:` exposure in static HTML.
 - **SEO, Structured Data & AI Discoverability**: Built-in `Schema.org` (`ProfilePage` + `Person` with `sameAs`), `llms.txt` summary, `sitemap.xml`, `robots.txt`, and pre-rendered No-JS static HTML fallbacks synced via `node scripts/sync-static.mjs`.
 - **Zero Dependencies & Zero Build Step**: Pure HTML5, CSS3, and Vanilla JavaScript ES modules — no bundlers, npm packages, external fonts, or icon CDNs.
-- **Privacy-First & Self-Contained**: Zero analytics, zero cookies, and zero third-party network requests.
+- **Privacy-First Cookieless Analytics**: Zero cookies, zero consent banners, and optional privacy-preserving pageview & card-click telemetry via Umami Cloud (`config/profile.js`).
 - **Accessible by Default (WCAG 2.2 AA)**: Semantic landmarks (`<main>`, `<nav>`, `<footer>`), native anchor navigation, high-contrast `:focus-visible` outlines, OS dynamic text-scale support (`<meta name="text-scale" content="scale">`), `prefers-reduced-motion` support, and Windows High Contrast (`forced-colors`) fallbacks.
 - **Safe Rendering**: Strict DOM construction via `textContent` (no `innerHTML`), strict `https:` URL validation, automatic `rel="noopener noreferrer"`, Content Security Policy enforcement, and automatic SVG icon fallback (`globe.svg`).
 - **GitHub Pages Ready**: Strictly relative asset paths (`./assets/...`) and `.nojekyll` support both root domains and `/<repo-name>/` project subpaths out of the box.

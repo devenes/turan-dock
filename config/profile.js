@@ -62,6 +62,13 @@ export const profile = {
     ],
   },
 
+  analytics: {
+    // Cookieless, GDPR-compliant pageview & card-click analytics via Umami Cloud
+    enabled: true,
+    umamiWebsiteId: "8eaa5053-0b42-46dd-b582-fd6fd47691db",
+    umamiScriptUrl: "https://cloud.umami.is/script.js",
+  },
+
   links: [
     {
       id: "linkedin",

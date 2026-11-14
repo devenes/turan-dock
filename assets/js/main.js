@@ -1092,6 +1092,7 @@ function renderLinks(config) {
     if (typeof item.id === "string" && SAFE_ICON_NAME_RE.test(item.id.trim())) {
       anchor.dataset.linkId = item.id.trim();
     }
+    anchor.setAttribute("data-umami-event", `Card: ${labelText}`);
 
     // Left platform icon
     const iconWrap = document.createElement("span");
@@ -1199,6 +1200,7 @@ function renderFooter(config) {
     repoLink.href = repoUrl;
     repoLink.target = "_blank";
     repoLink.rel = "noopener noreferrer";
+    repoLink.setAttribute("data-umami-event", "Footer: Source Repo");
     repoLink.textContent = repoLabel;
     p.appendChild(repoLink);
   }
