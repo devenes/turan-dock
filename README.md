@@ -67,21 +67,6 @@ export const profile = {
 - **Portrait**: Replace `assets/images/profile.webp` (`400×400` WebP recommended).
 - **Deploy**: Enable **GitHub Pages** from `Settings → Pages → Deploy from branch (main / root)`.
 
-## Structure
-
-```text
-├── index.html               # Semantic shell, CSP, JSON-LD & static No-JS links
-├── config/profile.js        # Single source of truth
-├── scripts/sync-static.mjs  # Syncs static HTML, JSON-LD, llms.txt & sitemap.xml
-├── llms.txt                 # AI-readable profile summary
-└── assets/
-    ├── css/style.css        # Midnight Aurora design system
-    ├── js/main.js           # Safe DOM renderer, vCard, clipboard & modal logic
-    ├── js/qrcode.js         # Zero-dependency ISO/IEC 18004 SVG QR encoder
-    ├── images/              # WebP portrait & Open Graph card
-    └── icons/               # Local SVG icon set
-```
-
 ## License
 
 [MIT](./LICENSE) © Enes Turan
