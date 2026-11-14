@@ -256,6 +256,7 @@ function buildIndexHtml(config) {
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
   <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM Profile Summary">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
