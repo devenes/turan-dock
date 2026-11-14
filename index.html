@@ -13,27 +13,75 @@
   <meta name="theme-color" content="#060913">
 
   <link rel="canonical" href="https://devenes.github.io/turan-dock/">
+  <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM Profile Summary">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Enes Turan">
   <meta property="og:title" content="Enes Turan — Software Engineer &amp; Google Developer Expert">
-  <meta property="og:description" content="Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye. Connect on LinkedIn, GitHub, X, Instagram, and Facebook.">
+  <meta property="og:description" content="Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.">
   <meta property="og:url" content="https://devenes.github.io/turan-dock/">
   <meta property="og:image" content="https://devenes.github.io/turan-dock/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Enes Turan — Software Engineer at JumpCloud and Google Developer Expert">
+  <meta property="og:image:alt" content="Enes Turan — Software Engineer &amp; Google Developer Expert">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@thedevenes">
   <meta name="twitter:creator" content="@thedevenes">
   <meta name="twitter:title" content="Enes Turan — Software Engineer &amp; Google Developer Expert">
-  <meta name="twitter:description" content="Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.">
+  <meta name="twitter:description" content="Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.">
   <meta name="twitter:image" content="https://devenes.github.io/turan-dock/assets/images/og-image.png">
-  <meta name="twitter:image:alt" content="Enes Turan — Software Engineer at JumpCloud and Google Developer Expert">
+  <meta name="twitter:image:alt" content="Enes Turan — Software Engineer &amp; Google Developer Expert">
+
+  <!-- Structured Data (Schema.org ProfilePage + Person) -->
+  <script type="application/ld+json" id="profile-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://devenes.github.io/turan-dock/#webpage",
+  "url": "https://devenes.github.io/turan-dock/",
+  "name": "Enes Turan — Software Engineer & Google Developer Expert",
+  "description": "Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.",
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://devenes.github.io/turan-dock/#person",
+    "name": "Enes Turan",
+    "jobTitle": "Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "JumpCloud"
+    },
+    "description": "Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.",
+    "url": "https://devenes.github.io/turan-dock/",
+    "image": "https://devenes.github.io/turan-dock/assets/images/profile.webp",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Istanbul, Türkiye"
+    },
+    "award": [
+      "Google Developer Expert"
+    ],
+    "knowsAbout": [
+      "Software Engineering",
+      "Cloud Architecture",
+      "Distributed Systems",
+      "Artificial Intelligence",
+      "Platform Engineering"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/devenes/",
+      "https://github.com/devenes",
+      "https://x.com/thedevenes",
+      "https://www.instagram.com/enes.ai/",
+      "https://www.facebook.com/profile.php?id=100087441315629"
+    ]
+  }
+}
+  </script>
 
   <link rel="stylesheet" href="./assets/css/style.css">
   <script type="module" src="./assets/js/main.js"></script>
@@ -67,22 +115,202 @@
 
         <p id="profile-headline" class="profile-headline">Software Engineer at JumpCloud</p>
 
-        <div id="profile-badges" class="profile-badges"></div>
+        <div id="profile-badges" class="profile-badges">
+          <span class="badge-pill"><img class="badge-icon" src="./assets/icons/sparkle.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true"><span>Google Developer Expert</span></span>
+        </div>
 
-        <p id="profile-location" class="profile-location" hidden></p>
+        <p id="profile-location" class="profile-location"><img class="location-icon" src="./assets/icons/map-pin.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true"><span>Istanbul, Türkiye</span></p>
 
-        <p id="profile-description" class="profile-description" hidden></p>
+        <p id="profile-description" class="profile-description">Building scalable software systems, cloud architecture, and practical AI solutions.</p>
       </section>
 
+      <!-- Interactive Quick Contact Actions (progressive enhancement; hidden when JS is disabled) -->
+      <div id="quick-actions" class="quick-actions" role="group" aria-label="Quick contact actions" hidden>
+        <button
+          type="button"
+          id="open-qr-btn"
+          class="action-pill"
+          command="show-modal"
+          commandfor="qr-dialog"
+        >
+          <img class="btn-icon" src="./assets/icons/qr-code.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
+          <span>QR &amp; Share</span>
+        </button>
+
+        <button
+          type="button"
+          id="save-vcard-btn"
+          class="action-pill"
+        >
+          <img class="btn-icon" src="./assets/icons/vcard.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
+          <span>Save Contact</span>
+        </button>
+
+        <button
+          type="button"
+          id="copy-email-btn"
+          class="action-pill"
+          command="--copy-email"
+          commandfor="copy-email-btn"
+        >
+          <img class="btn-icon btn-icon--default" src="./assets/icons/mail.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
+          <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="17" height="17" decoding="async" aria-hidden="true">
+          <span data-default-label="Copy Email" data-copied-label="Email Copied" data-failed-label="Copy Failed">Copy Email</span>
+        </button>
+      </div>
+
+      <!-- Pre-rendered static links work with zero JavaScript and are hydrated dynamically -->
       <nav class="links-nav" aria-label="Social and professional links">
-        <ul id="links-list" class="links-list"></ul>
-        <noscript>
-          <p class="noscript-notice">Please enable JavaScript to view social and profile links.</p>
-        </noscript>
+        <ul id="links-list" class="links-list">
+          <li class="links-item" style="--sibling-index: 1;">
+            <a class="link-card" href="https://www.linkedin.com/in/devenes/" target="_blank" rel="noopener noreferrer" data-link-id="linkedin">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/linkedin.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">LinkedIn</span>
+                <span class="link-description">Connect with me professionally</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 2;">
+            <a class="link-card" href="https://github.com/devenes" target="_blank" rel="noopener noreferrer" data-link-id="github">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/github.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">GitHub</span>
+                <span class="link-description">Explore my open-source projects &amp; code</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 3;">
+            <a class="link-card" href="https://x.com/thedevenes" target="_blank" rel="noopener noreferrer" data-link-id="x">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/x.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">X (Twitter)</span>
+                <span class="link-description">Thoughts on Cloud, Software Engineering &amp; AI</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 4;">
+            <a class="link-card" href="https://www.instagram.com/enes.ai/" target="_blank" rel="noopener noreferrer" data-link-id="instagram">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/instagram.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">Instagram</span>
+                <span class="link-description">AI insights, community events &amp; daily moments</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+          <li class="links-item" style="--sibling-index: 5;">
+            <a class="link-card" href="https://www.facebook.com/profile.php?id=100087441315629" target="_blank" rel="noopener noreferrer" data-link-id="facebook">
+              <span class="link-icon-wrap" aria-hidden="true">
+                <img class="link-icon" src="./assets/icons/facebook.svg" alt="" width="20" height="20" decoding="async" aria-hidden="true">
+              </span>
+              <span class="link-content">
+                <span class="link-label">Facebook</span>
+                <span class="link-description">Personal updates &amp; community highlights</span>
+              </span>
+              <span class="link-arrow-wrap" aria-hidden="true">
+                <img class="link-arrow" src="./assets/icons/external-link.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+        </ul>
       </nav>
     </main>
 
-    <footer id="site-footer" class="site-footer"></footer>
+    <footer id="site-footer" class="site-footer">
+      <p class="footer-inner"><span>Designed &amp; built by Enes Turan</span><span class="footer-sep" aria-hidden="true">•</span><a class="footer-link" href="https://github.com/devenes/turan-dock" target="_blank" rel="noopener noreferrer">Open Source on GitHub</a></p>
+    </footer>
   </div>
+
+  <!-- Native Modal Dialog for Conference QR Code & Sharing -->
+  <dialog id="qr-dialog" class="qr-dialog" closedby="any" aria-labelledby="qr-dialog-title">
+    <div class="qr-dialog-panel">
+      <div class="qr-dialog-header">
+        <div class="qr-dialog-heading-group">
+          <h2 id="qr-dialog-title" class="qr-dialog-title">Share Profile</h2>
+          <p class="qr-dialog-subtitle">Scan QR code or share direct link</p>
+        </div>
+        <button
+          type="button"
+          id="close-qr-btn"
+          class="dialog-close-btn"
+          command="close"
+          commandfor="qr-dialog"
+          aria-label="Close Share Profile dialog"
+        >
+          <img src="./assets/icons/close.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+        </button>
+      </div>
+
+      <div class="qr-stage">
+        <div id="qr-code-mount" class="qr-code-mount"></div>
+        <p id="qr-url-display" class="qr-url-display">devenes.github.io/turan-dock</p>
+      </div>
+
+      <input type="hidden" id="share-url-source" value="https://devenes.github.io/turan-dock/">
+
+      <div class="qr-dialog-actions">
+        <span class="copy-action-wrap">
+          <button
+            type="button"
+            id="modal-copy-link-btn"
+            class="modal-btn modal-btn--primary"
+            command="--copy"
+            commandfor="share-url-source"
+            autofocus
+          >
+            <img class="btn-icon btn-icon--default" src="./assets/icons/copy.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+            <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+            <span data-default-label="Copy Link" data-copied-label="Link Copied" data-failed-label="Copy Failed">Copy Link</span>
+          </button>
+          <span class="copy-tip" role="status"></span>
+        </span>
+
+        <button
+          type="button"
+          id="modal-native-share-btn"
+          class="modal-btn modal-btn--secondary"
+          hidden
+        >
+          <img class="btn-icon" src="./assets/icons/share.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+          <span>Share…</span>
+        </button>
+
+        <button
+          type="button"
+          id="modal-download-qr-btn"
+          class="modal-btn modal-btn--secondary"
+        >
+          <img class="btn-icon btn-icon--default" src="./assets/icons/download.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+          <img class="btn-icon btn-icon--copied" src="./assets/icons/check.svg" alt="" width="18" height="18" decoding="async" aria-hidden="true">
+          <span data-default-label="Save QR" data-copied-label="Saved SVG">Save QR</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Screen reader live region fallback & Persistent Toast Region -->
+  <p class="visually-hidden">Screen reader announcements</p>
+  <div id="sr-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+  <div id="toast-region" class="toast-region" role="region" aria-label="Notifications"></div>
 </body>
 </html>

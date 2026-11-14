@@ -1,8 +1,10 @@
 /**
  * Single source of truth for your personal Link-in-Bio website.
  *
- * Customize your profile, badges, social links, custom links, and footer below
- * without editing HTML, CSS, or application logic.
+ * Customize your profile, badges, contact actions, social links, custom links,
+ * and footer below without editing HTML, CSS, or application logic.
+ * (Optional: run `node scripts/sync-static.mjs` after editing to also update
+ * static No-JS HTML fallbacks, JSON-LD, `llms.txt`, and `sitemap.xml`.)
  *
  * Rules for links:
  * - Only links with `enabled: true` and a valid `https://` URL are rendered.
@@ -14,6 +16,8 @@ export const profile = {
   name: "Enes Turan",
 
   headline: "Software Engineer at JumpCloud",
+
+  canonicalUrl: "https://devenes.github.io/turan-dock/",
 
   badges: [
     {
@@ -32,10 +36,31 @@ export const profile = {
     alt: "Enes Turan speaking on stage",
   },
 
+  contact: {
+    // Split into `user` + `domain` so spam harvesters never find a raw email address in source files
+    email: {
+      user: "ahmedenesturan",
+      domain: "gmail.com",
+    },
+    organization: "JumpCloud",
+    jobTitle: "Software Engineer",
+    vcardFilename: "enes-turan.vcf",
+    enableQrModal: true,
+    enableVcard: true,
+    enableCopyEmail: true,
+  },
+
   seo: {
     title: "Enes Turan — Software Engineer & Google Developer Expert",
     description:
       "Official personal profile and social links of Enes Turan — Software Engineer at JumpCloud and Google Developer Expert based in Istanbul, Türkiye.",
+    knowsAbout: [
+      "Software Engineering",
+      "Cloud Architecture",
+      "Distributed Systems",
+      "Artificial Intelligence",
+      "Platform Engineering",
+    ],
   },
 
   links: [

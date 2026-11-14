@@ -8,8 +8,13 @@ Designed as a fast, open-source personal brand hub for sharing professional cred
 
 ## Main Features
 
-- **Single-File Configuration**: Customize profile details, badges, social accounts, custom links, ordering, and footer attribution solely in `config/profile.js`.
+- **Single-File Configuration**: Customize profile details, badges, contact actions, social accounts, custom links, ordering, and footer attribution solely in `config/profile.js`.
 - **Midnight Aurora Design**: Deep obsidian-navy canvas with subtle ambient gradient orbs, tactile noise anti-banding grain, animated avatar gradient ring, and dark-glass link cards.
+- **Conference & Networking Actions**:
+  - **QR Code & Share Modal (`<dialog>`)**: Zero-dependency ISO/IEC 18004 SVG QR code generator with light-dismiss, Web Share API (`navigator.share`), one-click link copy, and standalone SVG export.
+  - **Save Contact (`vCard / .vcf`)**: Dynamically generated RFC-compliant `.vcf` contact card with name, role, organization, email, location, and labeled social profiles.
+  - **Anti-Spam Email Copy**: Split `{ user, domain }` email configuration copied directly to clipboard with an accessible top-layer toast notification — zero raw `mailto:` exposure in static HTML.
+- **SEO, Structured Data & AI Discoverability**: Built-in `Schema.org` (`ProfilePage` + `Person` with `sameAs`), `llms.txt` summary, `sitemap.xml`, `robots.txt`, and pre-rendered No-JS static HTML fallbacks synced via `node scripts/sync-static.mjs`.
 - **Zero Dependencies & Zero Build Step**: Pure HTML5, CSS3, and Vanilla JavaScript ES modules — no bundlers, npm packages, external fonts, or icon CDNs.
 - **Privacy-First & Self-Contained**: Zero analytics, zero cookies, and zero third-party network requests.
 - **Accessible by Default (WCAG 2.2 AA)**: Semantic landmarks (`<main>`, `<nav>`, `<footer>`), native anchor navigation, high-contrast `:focus-visible` outlines, OS dynamic text-scale support (`<meta name="text-scale" content="scale">`), `prefers-reduced-motion` support, and Windows High Contrast (`forced-colors`) fallbacks.
@@ -32,18 +37,24 @@ Designed as a fast, open-source personal brand hub for sharing professional cred
 
 ```text
 turan-dock/
-├── index.html                  # Semantic HTML shell, CSP, SEO & Open Graph metadata
+├── index.html                  # Semantic HTML shell, CSP, JSON-LD, SEO & No-JS fallback links
+├── llms.txt                    # Machine-readable Markdown summary for AI assistants
+├── sitemap.xml                 # XML Sitemap for search crawlers
+├── robots.txt                  # Crawler directives & sitemap reference
 ├── favicon.svg                 # Local vector monogram favicon
 ├── README.md                   # Documentation & customization guide
 ├── LICENSE                     # MIT License
 ├── .nojekyll                   # Bypasses Jekyll processing on GitHub Pages
 ├── config/
-│   └── profile.js              # Single source of truth for profile & links
+│   └── profile.js              # Single source of truth for profile, contact & links
+├── scripts/
+│   └── sync-static.mjs         # Optional zero-dep sync script for static HTML/JSON-LD/llms.txt
 └── assets/
     ├── css/
-    │   └── style.css           # Midnight Aurora design system & responsive styles
+    │   └── style.css           # Midnight Aurora design system, modal & toast styles
     ├── js/
-    │   └── main.js             # Safe DOM renderer & URL/asset validator
+    │   ├── main.js             # Safe DOM renderer, URL validator, vCard, copy & modal logic
+    │   └── qrcode.js           # Zero-dependency ISO/IEC 18004 QR Code SVG encoder
     ├── images/
     │   ├── profile.webp        # Optimized circular profile photograph
     │   └── og-image.png        # 1200×630 Open Graph / social preview card
@@ -96,7 +107,7 @@ export const profile = {
 
 All optional fields (`headline`, `badges`, `location`, `description`, `footer`) automatically hide cleanly if set to an empty string `""`, empty array `[]`, or `null`.
 
-Also remember to update the static `<head>` Open Graph / canonical tags in `index.html` (`<title>`, `og:title`, `og:url`, `og:image`, `link[rel="canonical"]`) so social media link crawlers display your own metadata when sharing your URL.
+After editing `config/profile.js`, run `node scripts/sync-static.mjs` to automatically regenerate static `<head>` SEO/Open Graph tags, JSON-LD `ProfilePage` structured data, No-JS HTML link fallbacks, `llms.txt`, and `sitemap.xml`.
 
 ### 2. Change the Profile Photograph
 
