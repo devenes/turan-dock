@@ -14,9 +14,9 @@
 ## Official Profiles & Social Links
 
 - [LinkedIn](https://www.linkedin.com/in/devenes/)
-- [X (Twitter)](https://x.com/thedevenes)
 - [Instagram](https://www.instagram.com/enes.ai/)
 - [Facebook](https://www.facebook.com/profile.php?id=100087441315629)
+- [X (Twitter)](https://x.com/thedevenes)
 - [GitHub](https://github.com/devenes)
 
 ## Source Repository
